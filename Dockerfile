@@ -9,6 +9,9 @@ RUN mkdir $HOME/.R \
   && echo "CXXFLAGS+=-flto -ffat-lto-objects  -Wno-unused-local-typedefs" >> $HOME/.R/Makevars
 ENV MAKEFLAGS "-j4"
 
-# Install rstan
-RUN install2.r rstan --repos "https://cloud.r-project.org/" --deps TRUE
+# Install rstan dependencies
+RUN install2.r inline ggplot2 gridExtra Rcpp StanHeaders
+
+# Don't install all 'suggests'; shinystan's rsconnect fails
+RUN install2.r rstan
 
