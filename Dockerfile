@@ -10,6 +10,8 @@ RUN mkdir $HOME/.R \
 ENV MAKEFLAGS "-j4"
 
 # https://github.com/docker/compose/issues/3387
+
+RUN apt-get update && apt-get -y install python-pip
 RUN pip uninstall docker-compose && pip3 install docker-compose
 
 # Install rstan dependencies
