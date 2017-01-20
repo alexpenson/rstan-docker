@@ -10,7 +10,7 @@ RUN mkdir $HOME/.R \
 ENV MAKEFLAGS "-j4"
 
 # Install rstan dependencies
-RUN install2.r inline ggplot2 gridExtra Rcpp StanHeaders
+RUN install2.r inline ggplot2 gridExtra Rcpp RcppEigen BH StanHeaders 
 
 # Don't install all 'suggests'; shinystan's rsconnect fails
 RUN install2.r rstan
