@@ -9,6 +9,9 @@ RUN mkdir $HOME/.R \
   && echo "CXXFLAGS+=-flto -ffat-lto-objects  -Wno-unused-local-typedefs" >> $HOME/.R/Makevars
 ENV MAKEFLAGS "-j4"
 
+# https://github.com/docker/compose/issues/3387
+RUN pip uninstall docker-compose && pip3 install docker-compose
+
 # Install rstan dependencies
 RUN install2.r inline ggplot2 gridExtra Rcpp RcppEigen BH StanHeaders 
 
