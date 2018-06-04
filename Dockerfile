@@ -14,8 +14,8 @@ ENV MAKEFLAGS "-j4"
 # RUN apt-get update && apt-get -y install python-pip
 # RUN pip uninstall docker-compose && pip3 install docker-compose
 
-RUN apt-get update && apt-get -y install curl
-RUN curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+# RUN apt-get update && apt-get -y install curl
+# RUN curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
 
 # Install rstan dependencies
 RUN install2.r inline ggplot2 gridExtra Rcpp RcppEigen BH StanHeaders 
